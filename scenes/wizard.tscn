@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b3t0hubmqe4qa"]
+
+[ext_resource type="Script" uid="uid://dkny3783sdp5" path="res://scripts/wizard.gd" id="1_leome"]
+[ext_resource type="Texture2D" uid="uid://gi3l51jmmdme" path="res://assets/mainCharacter/pixelFlameChar.png" id="2_j4iv4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vejd"]
+radius = 19.0
+height = 54.0
+
+[node name="wizard" type="CharacterBody2D" unique_id=1922488905]
+script = ExtResource("1_leome")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1133315600]
+scale = Vector2(2, 2)
+texture = ExtResource("2_j4iv4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1231443404]
+position = Vector2(-1, 6)
+shape = SubResource("CapsuleShape2D_4vejd")
+
+[node name="Timer" type="Timer" parent="." unique_id=750917517]
+wait_time = 0.3
+autostart = true
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1269880250]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

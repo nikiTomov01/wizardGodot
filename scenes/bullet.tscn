@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c4ei7cp64uxlg"]
+
+[ext_resource type="Script" uid="uid://cpa8kujxadw48" path="res://bullet.gd" id="1_mkf8s"]
+[ext_resource type="Texture2D" uid="uid://e4xrjy6o1scd" path="res://assets/mainCharacter/fireBallPixel.png" id="2_y25gk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y25gk"]
+
+[node name="Bullet" type="Area2D" unique_id=81546056]
+script = ExtResource("1_mkf8s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=420777403]
+texture = ExtResource("2_y25gk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=749970299]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_y25gk")
