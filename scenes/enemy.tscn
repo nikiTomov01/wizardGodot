@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cqs3ff3bw6d3r"]
+
+[ext_resource type="Texture2D" uid="uid://cwo0t6bbyw8kl" path="res://assets/enemies/normalSlime.png" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://5syov7xfcr5t" path="res://scripts/enemy.gd" id="1_md0e3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7p1mj"]
+radius = 25.174553
+height = 76.21948
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1596824481]
+script = ExtResource("1_md0e3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=747322128]
+position = Vector2(7, 10)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_7p1mj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1107946708]
+position = Vector2(8, 15.000001)
+rotation = -4.8122888
+shape = SubResource("CapsuleShape2D_7p1mj")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=155533158]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1419942995]
+position = Vector2(8, 15.000001)
+rotation = -4.8122888
+shape = SubResource("CapsuleShape2D_7p1mj")

@@ -7,7 +7,7 @@
 radius = 19.0
 height = 54.0
 
-[node name="wizard" type="CharacterBody2D" unique_id=1922488905]
+[node name="wizard" type="CharacterBody2D" unique_id=1922488905 groups=["wizard"]]
 script = ExtResource("1_leome")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1133315600]

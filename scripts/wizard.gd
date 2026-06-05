@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
+@export var health := 100.0
 @export var speed := 300.0
-@export var attack_speed := 3.0
+@export var attack_speed := 1.0
 @export var bullet_count := 1
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
@@ -22,7 +23,7 @@ func _physics_process(delta: float):
 	move_and_slide()
 
 func _on_timer_timeout():
-	for bullet_count in bullet_count:
+	for bullet_idx in bullet_count:
 		var bullet = bullet_scene.instantiate()
 		
 		bullet.global_position = $Muzzle.global_position
