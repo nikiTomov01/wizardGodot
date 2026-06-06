@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dkny3783sdp5" path="res://scripts/wizard.gd" id="1_leome"]
 [ext_resource type="Texture2D" uid="uid://gi3l51jmmdme" path="res://assets/mainCharacter/pixelFlameChar.png" id="2_j4iv4"]
+[ext_resource type="PackedScene" uid="uid://ju04dggoxc0i" path="res://scenes/status_bar.tscn" id="3_j4iv4"]
+[ext_resource type="Script" uid="uid://bv77phms0tduu" path="res://scripts/healthComponent.gd" id="4_nmnu7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vejd"]
 radius = 19.0
@@ -23,5 +25,12 @@ wait_time = 0.3
 autostart = true
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=1269880250]
+
+[node name="HealthBar" parent="." unique_id=1976270570 instance=ExtResource("3_j4iv4")]
+offset_left = -76.0
+offset_top = -108.0
+offset_right = -36.0
+offset_bottom = -68.0
+script = ExtResource("4_nmnu7")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

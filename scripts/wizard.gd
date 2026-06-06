@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-@export var health := 100.0
+@export var max_health := 5
+var current_heatlh := max_health
+
 @export var speed := 300.0
 @export var attack_speed := 1.0
 @export var bullet_count := 1

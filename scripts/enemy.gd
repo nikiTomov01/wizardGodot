@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @export var move_speed := 100.0
 @export var health := 3
+@onready var hpBar = $healhBar
 
 var wizard: Node2D
 
@@ -18,8 +19,11 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * move_speed
 	move_and_slide()
 
-func take_damage(damage: int):
-	health -= damage
-	
-	if health <= 0:
-		queue_free()
+#func take_damage(damage: int):
+	#health -= damage
+	#
+	#if health <= 0:
+		#queue_free()
+		
+func updateStatus(dmg: int):
+	hpBar.take_damage(dmg)

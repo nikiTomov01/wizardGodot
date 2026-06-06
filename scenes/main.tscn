@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://ct0bkr71eavwq"]
 
 [ext_resource type="PackedScene" uid="uid://b3t0hubmqe4qa" path="res://scenes/wizard.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://b7cfil262ytvv" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cqs3ff3bw6d3r" path="res://scenes/enemy.tscn" id="2_0wfyh"]
 
 [node name="Main" type="Node2D" unique_id=1921250028]
+script = ExtResource("1_sugp2")
 
 [node name="wizard" parent="." unique_id=1922488905 instance=ExtResource("1_o5qli")]
 position = Vector2(46, 40)
