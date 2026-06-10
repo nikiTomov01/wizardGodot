@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cwo0t6bbyw8kl" path="res://assets/enemies/normalSlime.png" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://5syov7xfcr5t" path="res://scripts/enemy.gd" id="1_md0e3"]
 [ext_resource type="PackedScene" uid="uid://ju04dggoxc0i" path="res://scenes/status_bar.tscn" id="3_4ra3w"]
-[ext_resource type="Script" uid="uid://bv77phms0tduu" path="res://scripts/healthComponent.gd" id="4_5uy6h"]
+[ext_resource type="Script" uid="uid://c17gjjna2yl8k" path="res://scripts/stat_component.gd" id="3_5uy6h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7p1mj"]
 radius = 25.174553
@@ -29,11 +29,14 @@ position = Vector2(8, 15.000001)
 rotation = -4.8122888
 shape = SubResource("CapsuleShape2D_7p1mj")
 
-[node name="healhBar" parent="." unique_id=1836681470 instance=ExtResource("3_4ra3w")]
-offset_left = -67.0
-offset_top = -64.0
-offset_right = -27.0
-offset_bottom = -24.0
-script = ExtResource("4_5uy6h")
+[node name="Health" type="Node" parent="." unique_id=43024846]
+script = ExtResource("3_5uy6h")
+max_value = 3
 
-[connection signal="health_changed" from="healhBar" to="." method="_on_status_bar_health_changed"]
+[node name="HealthBar" parent="." unique_id=1836681470 node_paths=PackedStringArray("stat_component") instance=ExtResource("3_4ra3w")]
+offset_left = -37.0
+offset_top = -43.0
+offset_right = 3.0
+offset_bottom = -3.0
+fill_color = Color(1, 0, 0, 1)
+stat_component = NodePath("../Health")

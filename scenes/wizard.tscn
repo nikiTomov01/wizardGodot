@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dkny3783sdp5" path="res://scripts/wizard.gd" id="1_leome"]
 [ext_resource type="Texture2D" uid="uid://gi3l51jmmdme" path="res://assets/mainCharacter/pixelFlameChar.png" id="2_j4iv4"]
-[ext_resource type="PackedScene" uid="uid://ju04dggoxc0i" path="res://scenes/status_bar.tscn" id="3_j4iv4"]
-[ext_resource type="Script" uid="uid://bv77phms0tduu" path="res://scripts/healthComponent.gd" id="4_nmnu7"]
+[ext_resource type="Script" uid="uid://c17gjjna2yl8k" path="res://scripts/stat_component.gd" id="3_j4iv4"]
+[ext_resource type="PackedScene" uid="uid://ju04dggoxc0i" path="res://scenes/status_bar.tscn" id="4_nmnu7"]
+[ext_resource type="Script" uid="uid://dq4uq05bbs6vq" path="res://scripts/exp_comp.gd" id="5_5ipgv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vejd"]
 radius = 19.0
@@ -26,11 +27,38 @@ autostart = true
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=1269880250]
 
-[node name="HealthBar" parent="." unique_id=1976270570 instance=ExtResource("3_j4iv4")]
-offset_left = -76.0
-offset_top = -108.0
-offset_right = -36.0
-offset_bottom = -68.0
-script = ExtResource("4_nmnu7")
+[node name="Health" type="Node" parent="." unique_id=1528706583]
+script = ExtResource("3_j4iv4")
+
+[node name="Mana" type="Node" parent="." unique_id=2025588625]
+script = ExtResource("3_j4iv4")
+max_value = 50
+
+[node name="HealthBar" parent="." unique_id=1836681470 node_paths=PackedStringArray("stat_component") instance=ExtResource("4_nmnu7")]
+offset_left = -40.0
+offset_top = -49.0
+offset_right = 0.0
+offset_bottom = -9.0
+fill_color = Color(3.85046e-06, 0.6298811, 0.54199463, 1)
+stat_component = NodePath("../Health")
+
+[node name="ManaBar" parent="." unique_id=2105427422 node_paths=PackedStringArray("stat_component") instance=ExtResource("4_nmnu7")]
+offset_left = -40.0
+offset_top = -34.0
+offset_right = 0.0
+offset_bottom = 6.0
+fill_color = Color(0, 0.44313726, 1, 1)
+stat_component = NodePath("../Mana")
+
+[node name="Exp" type="Node" parent="." unique_id=167931394]
+script = ExtResource("5_5ipgv")
+
+[node name="ExpBar" parent="." unique_id=945224683 node_paths=PackedStringArray("stat_component") instance=ExtResource("4_nmnu7")]
+offset_left = -39.0
+offset_top = 38.0
+offset_right = 1.0
+offset_bottom = 78.0
+fill_color = Color(0.9065829, 9.62615e-08, 0.46135336, 1)
+stat_component = NodePath("../Exp")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

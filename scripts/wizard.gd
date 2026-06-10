@@ -3,11 +3,25 @@ extends CharacterBody2D
 @export var max_health := 5
 var current_heatlh := max_health
 
-@export var speed := 300.0
+@onready var exp = $Exp
+
+@export var speed := 350.0
 @export var attack_speed := 1.0
 @export var bullet_count := 1
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
+
+func _ready() -> void:
+	exp.level_up.connect(_on_level_up)
+	
+func add_exp(amount: int):
+	exp.add_exp(amount)
+
+func _on_level_up(level):
+	print("Leveled up!", level)
+	
+func _on_death():
+	queue_free()
 
 func _enter_tree():
 	update_attack_speed()
