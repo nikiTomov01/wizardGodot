@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cwo0t6bbyw8kl" path="res://assets/enemies/normalSlime.png" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://5syov7xfcr5t" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="PackedScene" uid="uid://4877q83lwbtp" path="res://scenes/expScenes/fire_exp.tscn" id="2_c4w8v"]
 [ext_resource type="PackedScene" uid="uid://ju04dggoxc0i" path="res://scenes/status_bar.tscn" id="3_4ra3w"]
 [ext_resource type="Script" uid="uid://c17gjjna2yl8k" path="res://scripts/stat_component.gd" id="3_5uy6h"]
 
@@ -11,6 +12,7 @@ height = 76.21948
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1596824481]
 script = ExtResource("1_md0e3")
+exp_orb_scene = ExtResource("2_c4w8v")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=747322128]
 position = Vector2(7, 10)

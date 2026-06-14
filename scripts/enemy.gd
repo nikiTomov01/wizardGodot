@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var move_speed := 100.0
 @onready var health = $Health
 
-@export var exp_reward := 5
+@export var exp_orb_scene: PackedScene
 
 var wizard: Node2D
 
@@ -13,8 +13,10 @@ func _ready():
 	health.depleted.connect(_on_death)
 	
 func _on_death():
-	if wizard:
-		wizard.add_exp(exp_reward)
+	var orb = exp_orb_scene.instantiate()
+	orb.global_position = global_position
+	get_tree().current_scene.add_child(orb)
+	
 	queue_free()
 
 func _physics_process(delta: float) -> void:

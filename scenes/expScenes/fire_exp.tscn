@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://4877q83lwbtp"]
+
+[ext_resource type="Texture2D" uid="uid://cn5l7i6pqpbv7" path="res://assets/expSprites/fireExp.png" id="1_lcjc6"]
+[ext_resource type="Script" uid="uid://dcdce46vs3ydq" path="res://scripts/expDrop.gd" id="1_ykmbw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ykmbw"]
+radius = 9.0
+height = 24.0
+
+[node name="FireExp" type="Area2D" unique_id=797426321]
+script = ExtResource("1_ykmbw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1507447557]
+texture = ExtResource("1_lcjc6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=402060015]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_ykmbw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

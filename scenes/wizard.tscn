@@ -54,6 +54,7 @@ stat_component = NodePath("../Mana")
 script = ExtResource("5_5ipgv")
 
 [node name="ExpBar" parent="." unique_id=945224683 node_paths=PackedStringArray("stat_component") instance=ExtResource("4_nmnu7")]
+visible = false
 offset_left = -39.0
 offset_top = 38.0
 offset_right = 1.0
