@@ -1,13 +1,8 @@
 extends CharacterBody2D
 
-@export var max_health := 5
-var current_heatlh := max_health
+@export var stats : PlayerStats
 
 @onready var exp = $Exp
-
-@export var speed := 350.0
-@export var attack_speed := 1.0
-@export var bullet_count := 1
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
 
@@ -34,12 +29,12 @@ func _physics_process(delta: float):
 
 	direction.normalized()
 	
-	velocity = direction * speed
+	velocity = direction * stats.speed
 	
 	move_and_slide()
 
 func _on_timer_timeout():
-	for bullet_idx in bullet_count:
+	for bullet_idx in stats.bullet_count:
 		var bullet = bullet_scene.instantiate()
 		
 		bullet.global_position = $Muzzle.global_position
@@ -55,4 +50,4 @@ func _on_timer_timeout():
 		await get_tree().create_timer(0.3).timeout
 
 func update_attack_speed():
-	$Timer.wait_time = 1.0 / attack_speed
+	$Timer.wait_time = 1.0 / stats.attack_speed

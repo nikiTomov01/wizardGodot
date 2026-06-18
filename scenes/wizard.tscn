@@ -5,13 +5,15 @@
 [ext_resource type="Script" uid="uid://c17gjjna2yl8k" path="res://scripts/stat_component.gd" id="3_j4iv4"]
 [ext_resource type="PackedScene" uid="uid://ju04dggoxc0i" path="res://scenes/status_bar.tscn" id="4_nmnu7"]
 [ext_resource type="Script" uid="uid://dq4uq05bbs6vq" path="res://scripts/exp_comp.gd" id="5_5ipgv"]
+[ext_resource type="Script" uid="uid://dva5lpv54a0nv" path="res://scripts/player_stats.gd" id="6_8qlyk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vejd"]
 radius = 19.0
 height = 54.0
 
-[node name="wizard" type="CharacterBody2D" unique_id=1922488905 groups=["wizard"]]
+[node name="wizard" type="CharacterBody2D" unique_id=1922488905 node_paths=PackedStringArray("stats") groups=["wizard"]]
 script = ExtResource("1_leome")
+stats = NodePath("PlayerStats")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1133315600]
 scale = Vector2(2, 2)
@@ -61,5 +63,8 @@ offset_right = 1.0
 offset_bottom = 78.0
 fill_color = Color(0.9065829, 9.62615e-08, 0.46135336, 1)
 stat_component = NodePath("../Exp")
+
+[node name="PlayerStats" type="Node" parent="." unique_id=1367673317]
+script = ExtResource("6_8qlyk")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

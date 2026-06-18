@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://8hgcjgsnlakm"]
+
+[ext_resource type="Texture2D" uid="uid://vyowf2avrseo" path="res://assets/enemies/slime32.png" id="1_2jda0"]
+[ext_resource type="Script" uid="uid://teosore8m55n" path="res://scripts/enemy_64.gd" id="1_8rh5o"]
+[ext_resource type="Script" uid="uid://c17gjjna2yl8k" path="res://scripts/stat_component.gd" id="2_8rh5o"]
+[ext_resource type="PackedScene" uid="uid://ju04dggoxc0i" path="res://scenes/status_bar.tscn" id="3_nyrv3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dq7gx"]
+size = Vector2(32, 32)
+
+[node name="enemy32" type="CharacterBody2D" unique_id=1610117389]
+script = ExtResource("1_8rh5o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2042789070]
+texture = ExtResource("1_2jda0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2121673817]
+shape = SubResource("RectangleShape2D_dq7gx")
+
+[node name="Health" type="Node" parent="." unique_id=1114358391]
+script = ExtResource("2_8rh5o")
+max_value = 2
+metadata/_custom_type_script = "uid://c17gjjna2yl8k"
+
+[node name="HealthBar" parent="." unique_id=1836681470 node_paths=PackedStringArray("stat_component") instance=ExtResource("3_nyrv3")]
+offset_left = -43.0
+offset_top = -31.0
+offset_right = -3.0
+offset_bottom = 9.0
+fill_color = Color(0.8364897, 6.738305e-07, 0.4330581, 1)
+stat_component = NodePath("../Health")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1546203818]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1869517479]
+shape = SubResource("RectangleShape2D_dq7gx")

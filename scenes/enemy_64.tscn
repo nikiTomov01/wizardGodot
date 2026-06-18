@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dxnwfpaflxhqq"]
+
+[ext_resource type="Script" uid="uid://teosore8m55n" path="res://scripts/enemy_64.gd" id="1_dxv2k"]
+[ext_resource type="Script" uid="uid://c17gjjna2yl8k" path="res://scripts/stat_component.gd" id="2_t1wci"]
+[ext_resource type="PackedScene" uid="uid://ju04dggoxc0i" path="res://scenes/status_bar.tscn" id="3_fu7sk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu7sk"]
+size = Vector2(30, 61)
+
+[node name="enemy64" type="CharacterBody2D" unique_id=1883892405]
+script = ExtResource("1_dxv2k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=253099357]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=744331892]
+position = Vector2(2, -1.5)
+shape = SubResource("RectangleShape2D_fu7sk")
+
+[node name="Health" type="Node" parent="." unique_id=1174070573]
+script = ExtResource("2_t1wci")
+max_value = 3
+metadata/_custom_type_script = "uid://c17gjjna2yl8k"
+
+[node name="HealthBar" parent="." unique_id=1836681470 node_paths=PackedStringArray("stat_component") instance=ExtResource("3_fu7sk")]
+offset_left = -40.0
+offset_top = -47.0
+offset_right = 0.0
+offset_bottom = -7.0
+fill_color = Color(0.8364897, 6.738305e-07, 0.4330581, 1)
+stat_component = NodePath("../Health")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=435222676]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1400046436]
+position = Vector2(2, -1.5)
+shape = SubResource("RectangleShape2D_fu7sk")

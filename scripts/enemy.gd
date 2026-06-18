@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var move_speed := 100.0
+@export var move_speed := 420.0
 @onready var health = $Health
 
 @export var exp_orb_scene: PackedScene

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://p6dsfubumnc1"]
+
+[ext_resource type="Script" uid="uid://bfxvgt07cnivm" path="res://resources/enemy_stats.gd" id="1_52wpc"]
+[ext_resource type="Texture2D" uid="uid://vyowf2avrseo" path="res://assets/enemies/slime32.png" id="2_h0tb1"]
+
+[resource]
+script = ExtResource("1_52wpc")
+texture = ExtResource("2_h0tb1")
+maxHealth = 2.0
+speed = 300.0
+metadata/_custom_type_script = "uid://bfxvgt07cnivm"

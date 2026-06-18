@@ -14,6 +14,9 @@ script = ExtResource("1_sugp2")
 [node name="wizard" parent="." unique_id=1922488905 instance=ExtResource("1_o5qli")]
 position = Vector2(161, 169)
 
+[node name="Enemy" parent="." unique_id=1596824481 instance=ExtResource("2_0wfyh")]
+position = Vector2(1003, 539)
+
 [node name="UI" type="CanvasLayer" parent="." unique_id=1892358716 node_paths=PackedStringArray("wizard")]
 script = ExtResource("4_jyhfs")
 wizard = NodePath("../wizard")
