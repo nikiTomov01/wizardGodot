@@ -47,7 +47,7 @@ func _on_timer_timeout():
 		
 		
 		get_tree().current_scene.add_child(bullet)
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(0.05).timeout
 
 func update_attack_speed():
 	$Timer.wait_time = 1.0 / stats.attack_speed
