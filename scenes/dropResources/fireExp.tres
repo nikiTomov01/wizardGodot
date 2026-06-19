@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DropStats" format=3 uid="uid://dwcabbai22rap"]
+
+[ext_resource type="Script" uid="uid://bx8sy0awtgdc3" path="res://resources/drop_stats.gd" id="1_vwmc6"]
+[ext_resource type="Texture2D" uid="uid://df0ao08gdnqvg" path="res://assets/expSprites/fireExp16.png" id="2_r6rrl"]
+
+[resource]
+script = ExtResource("1_vwmc6")
+texture = ExtResource("2_r6rrl")
+name = "Fire Experience"
+value = 3.0
+metadata/_custom_type_script = "uid://bx8sy0awtgdc3"

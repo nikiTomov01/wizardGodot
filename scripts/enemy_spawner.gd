@@ -1,6 +1,5 @@
 extends Node2D
 
-@export var enemyList : Array[PackedScene]
 @export var spawn_radius := 600.0
 
 var player : CharacterBody2D
@@ -18,9 +17,12 @@ var enemyStats32 : Array[EnemyStats] = [
 	preload("res://scenes/enemyResources/slime.tres")
 ]
 
+var dropSpawner : Node2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("wizard")
+	dropSpawner = get_tree().current_scene.get_node("DropSpawner")
 
 func spawn_enemy():
 	if player == null:
@@ -35,6 +37,8 @@ func spawn_enemy():
 	else:
 		spawnedEnemy = enemyScene32.instantiate()
 		spawnedEnemy.stats = enemyStats32.pick_random()
+		
+	spawnedEnemy.died.connect(dropSpawner._on_enemy_died)
 	
 	var angle = randf() * TAU
 	var offset = Vector2.RIGHT.rotated(angle) * spawn_radius

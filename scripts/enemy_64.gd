@@ -1,6 +1,8 @@
 class_name Enemy
 extends CharacterBody2D
 
+signal died(enemy)
+
 @export var stats : EnemyStats
 
 @export var maxHealth: float
@@ -28,6 +30,7 @@ func _physics_process(delta: float) -> void:
 func _on_death():
 	# Logic for item drops here
 	
+	died.emit(self)
 	queue_free()
 
 func take_damage(damage: int):

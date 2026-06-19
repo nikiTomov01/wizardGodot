@@ -2,11 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://b3t0hubmqe4qa" path="res://scenes/wizard.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://b7cfil262ytvv" path="res://scripts/main.gd" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://cqs3ff3bw6d3r" path="res://scenes/enemy.tscn" id="2_0wfyh"]
 [ext_resource type="Script" uid="uid://stbmau0n8ukc" path="res://scripts/UI.gd" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://ju04dggoxc0i" path="res://scenes/status_bar.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://c1advya51kt6l" path="res://scripts/enemy_spawner.gd" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://l3jgp556irid" path="res://scripts/wave_manager.gd" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://2yqnlsfsc73w" path="res://scripts/drop_spawner.gd" id="7_tipki"]
+[ext_resource type="PackedScene" uid="uid://4877q83lwbtp" path="res://scenes/expScenes/fire_exp.tscn" id="8_tipki"]
 
 [node name="Main" type="Node2D" unique_id=1921250028]
 script = ExtResource("1_sugp2")
@@ -19,8 +20,10 @@ script = ExtResource("4_jyhfs")
 wizard = NodePath("../wizard")
 
 [node name="LevelLabel" type="Label" parent="UI" unique_id=1834143146]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 57.0
+offset_bottom = 24.0
 text = "Level 0"
 
 [node name="ExpBar" parent="UI" unique_id=1836681470 instance=ExtResource("5_tbgi4")]
@@ -31,15 +34,15 @@ offset_bottom = 60.0
 fill_color = Color(0.9065829, 9.62615e-08, 0.46135336, 1)
 
 [node name="WaveCounter" type="Label" parent="UI" unique_id=1471538106]
-offset_left = 129.0
-offset_right = 211.0
-offset_bottom = 23.0
+offset_left = 123.0
+offset_top = 1.0
+offset_right = 205.0
+offset_bottom = 24.0
 text = "Wave: 0"
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=1725309449 groups=["enemySpawner"]]
 position = Vector2(960, 578)
 script = ExtResource("6_tefeu")
-enemyList = Array[PackedScene]([ExtResource("2_0wfyh")])
 
 [node name="WaveManager" type="Node2D" parent="." unique_id=1416905906]
 script = ExtResource("7_o6xl0")
@@ -47,3 +50,7 @@ script = ExtResource("7_o6xl0")
 [node name="enemySpawnTimer" type="Timer" parent="WaveManager" unique_id=2038348886]
 wait_time = 2.0
 autostart = true
+
+[node name="DropSpawner" type="Node2D" parent="." unique_id=1236323106]
+script = ExtResource("7_tipki")
+exp_gem_scene = ExtResource("8_tipki")

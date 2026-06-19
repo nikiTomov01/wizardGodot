@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://chmv2ogjg8ipc"]
+
+[ext_resource type="Script" uid="uid://cysvdg3akr3yk" path="res://scripts/drop.gd" id="1_8gqc7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8jmd"]
+size = Vector2(16, 16)
+
+[node name="Drop" type="Area2D" unique_id=1348089776]
+script = ExtResource("1_8gqc7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1512856365]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=389870585]
+shape = SubResource("RectangleShape2D_p8jmd")

@@ -26,12 +26,12 @@ func _process(delta: float) -> void:
 		createWave()
 
 func createWave() -> void:
-		for enemy in enemyInWave:
-			enemySpawner.spawn_enemy()
-			enemyInWave -= 1
-			if enemyInWave <= 0:
-				wave += 1
-				print("WAVE OVER")
-				enemyInWave = (wave * 4) - 1
-				waveChanged.emit(wave)
-			await get_tree().create_timer(2).timeout
+	waveChanged.emit(wave)
+	for enemy in enemyInWave:
+		enemySpawner.spawn_enemy()
+		enemyInWave -= 1
+		if enemyInWave <= 0:
+			wave += 1
+			print("WAVE OVER")
+			enemyInWave = (wave * 4) - 1
+		await get_tree().create_timer(2).timeout
